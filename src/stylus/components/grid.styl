@@ -1,0 +1,50 @@
+// grid
+
+.grid
+  display: flex
+  flex-flow: row wrap
+  justify-content: flex-start
+  align-content: flex-start
+  align-items: flex-start
+
+  &_nowrap
+    flex-wrap: nowrap
+
+  &_stretch
+    align-content: stretch
+    align-items: stretch
+
+  &_align_center
+    justify-content: center
+
+  &_align_right
+    justify-content: flex-end
+
+  &_valign_middle
+    align-content: center
+    align-items: center
+
+  &_valign_bottom
+    align-content: flex-end
+    align-items: flex-end
+
+  &__col
+    flex: 0 0 auto
+    display: block
+    padding: 0
+    margin: 0
+
+    for $colNum in 1..$grid
+      &_size_{$colNum}
+        width: unit(round(100 / $grid * $colNum, 3), '%')
+
+    for $colNum in 1..$grid
+      &_push_{$colNum}
+        margin-left: unit(round(100 / $grid * $colNum, 3), '%')
+
+    for $colNum in 1..$grid
+      &_pull_{$colNum}
+        margin-left: unit(-1 * round(100 / $grid * $colNum, 3), '%')
+
+  &__content
+    padding: 0 px2rem($layoutGapSize / 2)

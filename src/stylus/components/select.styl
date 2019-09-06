@@ -1,0 +1,248 @@
+// select component
+
+.select
+  appearance: none
+  box-sizing: border-box
+  position: relative
+  display: inline-block
+  max-width: 100%
+  height: 3rem
+  padding: 0
+  border: none
+  border-radius: .25rem
+  outline: none
+  margin: 0
+  background: #fafafa
+  font: getFont(px2rem(14), 1.25rem)
+  color: rgba(0, 0, 0, .64)
+  letter-spacing: px2rem(.16)
+  text-align: left
+  text-indent: 0
+  text-transform: none
+  text-decoration: none
+  word-spacing: normal
+  word-wrap: normal
+  white-space: normal
+  direction: ltr
+  cursor: default
+  -webkit-font-smoothing: antialiased
+  text-rendering: optimizeLegibility
+  -moz-osx-font-smoothing: grayscale
+  font-feature-settings: 'liga', 'kern'
+  overflow: visible
+  opacity: 1
+  user-select: none
+  -webkit-tap-highlight-color: transparent
+
+  &__field
+    box-sizing: border-box
+    position: relative
+    z-index: 1
+    flex: 0 0 auto
+    display: inline-table
+    table-layout: fixed
+    width: 100%
+    padding: 0
+    border-collapse: collapse
+    margin: 0
+    cursor: pointer
+    transition: z-index 0s ease .16s
+    will-change: z-index
+
+    ^[0]_expanded &
+      z-index: 101
+      transition: none
+
+    &_label_long::before
+      content: attr(data-title)
+      box-sizing: border-box
+      position: absolute
+      top: 0
+      left: 0
+      z-index: 2
+      display: block
+      width: 100%
+      height: auto
+      padding: .25rem px2rem($docCardGapSize / 2)
+      border-radius: .25rem
+      margin: 0
+      background-color: #fff
+      text-overflow none
+      white-space: normal
+      overflow: visible
+      opacity: 0
+      visibility: hidden
+      transition: all .16s ease .16s
+      will-change: opacity, visibility, box-shadow
+
+    &_label_long:hover::before
+      box-shadow: 0 .25rem .5rem rgba(0, 0, 0, .12)
+      opacity: 1
+      visibility: visible
+      transition-delay: .48s
+
+  &__value
+    @extends $textNowrap
+    box-sizing: border-box
+    position: relative
+    display: table-cell
+    width: 100%
+    height: 1.25rem
+    padding: .875rem .25rem .875rem .75rem
+    vertical-align: middle
+    transition: all .24s ease
+
+    &:empty::before
+      content: attr(data-placeholder)
+      position: relative
+      font-style: italic
+      color: rgba(0, 0, 0, .48)
+
+  &__arrow
+    position: relative
+    flex: 0 0 auto
+    display: table-cell
+    width: 1.25rem
+    height: @width
+    padding: .875rem .5rem
+    vertical-align: middle
+    opacity: .48
+    transition: all .24s ease
+    transform: rotate(0deg)
+    will-change: transform
+    pointer-events: none
+
+    ^[0]__value:hover &
+      opacity: .64
+
+    & > *
+      display: block
+
+    ^[0]_expanded &
+      transform: rotate(179.99deg)
+
+    & svg path
+      transition: stroke .16s ease
+      will-change: stroke
+
+      ^[0]_expanded &
+        stroke: $themeColor
+
+  &__dropdown
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+    z-index: 100
+    display: flex
+    flex-flow: column nowrap
+    justify-content: stretch
+    align-content: stretch
+    align-items: stretch
+    height: auto
+    max-height: 15.5em
+    padding: 3.5rem .25rem .25rem
+    border-radius: .25rem
+    margin: -.25rem
+    background-color: #fff
+    overflow: hidden
+    visibility: hidden
+    opacity: 0
+    transform-origin: center 1.75rem
+    transform: scaleY(.6)
+    transition-property: box-shadow, visibility, opacity, transform
+    transition-duration: .16s
+    transition-timing-function: ease
+    will-change: box-shadow, visibility, opacity, transform
+
+    ^[0]_expanded &
+      box-shadow: 0 .25rem .5rem rgba(0, 0, 0, .12)
+      visibility: visible
+      opacity: 1
+      transform: scaleY(1)
+
+    &::after
+      content: ''
+      position: absolute
+      top: 3.5rem
+      left: -.25rem
+      right: @left
+      display: block
+      height: 0
+      border-bottom: .0625rem solid #eee
+      transform: scaleX(0)
+      transition: transform .16s ease
+      will-change: transform
+
+      ^[0]_expanded &
+        transform: scaleX(1)
+        transition-delay: .16s
+
+  &__menu
+    position: relative
+    flex 1 1 auto
+    display: block
+    width: 100%
+    padding: 0 1.5rem 0 0
+    margin: 0
+    overflow-x: hidden
+    overflow-y: auto
+    -webkit-overflow-scrolling: touch
+
+  &__list
+    position: relative
+    list-style: none
+    display: block
+    width: 100%
+    padding: .25rem 0 0
+    margin: 0
+
+  &__item
+    position: relative
+    display: block
+    padding: 0
+    margin: 0
+
+  &__option
+    @extends $textNowrap
+    position: relative
+    display: block
+    padding: .875rem .75rem
+    border-radius: .25rem
+    margin: 0
+    cursor: pointer
+    transition: all .24s ease
+    will-change: background-color, color
+
+    &:hover
+      // background-color: #fafafa
+      color: rgba(0, 0, 0 , .88)
+
+  &__input
+    position: absolute
+    top: -9999px
+    left: @top
+    z-index: -9999
+    visibility: hidden
+    opacity: 0
+
+  &__label
+    position: static
+
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+
+      ^[0]__option:hover &
+        background-color: #fafafa
+
+      ^[0]__input:checked ~ &
+        background: rgba($themeColor, .2)
+
+    ^[0]__input:checked ~ &
+      color: rgba(0, 0, 0 , .88)

@@ -1,0 +1,175 @@
+// document component
+
+.document
+  position: relative
+  display: block
+  padding: .125rem
+  margin: 0
+  border-radius: .5rem
+  background-color: #fafafa
+  overflow: hidden
+  cursor: default
+  transition: background-color .24s ease
+  will-change: background-color
+
+  &_state_hover:hover
+    background-color: #f0f0f0
+    cursor: pointer
+
+  &:active
+    cursor: text
+
+  &__type_order
+    background-color: rgba($themeColor, .1)
+
+    ^[0]_state_hover&:hover
+      background-color: rgba($themeColor, .2)
+
+  &__header
+    position: relative
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-content: center
+    align-items: center
+    padding: .75rem px2rem(10)
+
+  &__info
+    position: relative
+    flex: 1 1 auto
+    display: flex
+    flex-flow: row wrap
+    justify-content: flex-start
+    align-content: center
+    align-items: center
+    width: px2rem($docCardLayoutWidth / $docCardGridCols * 10)
+
+  &__number
+  &__date
+  &__name
+    box-sizing: border-box
+    position: relative
+    display: block
+    padding: 0 px2rem($docCardGapSize / 2)
+    margin: 0
+
+    &_label_long::before
+      content: attr(data-title)
+      box-sizing: border-box
+      position: absolute
+      top: 0
+      left: 0
+      z-index: 2
+      display: block
+      width: 100%
+      height: auto
+      padding: .25rem px2rem($docCardGapSize / 2)
+      border-radius: .25rem
+      margin: -.25rem 0
+      background-color: #fff
+      text-overflow none
+      white-space: normal
+      overflow: visible
+      opacity: 0
+      visibility: hidden
+      transition: all .16s ease .16s
+      will-change: opacity visibility box-shadow
+
+    &_label_long:hover::before
+      box-shadow: 0 .25rem .5rem rgba(0, 0, 0, .12)
+      opacity: 1
+      visibility: visible
+      transition-delay: .48s
+
+  &__number
+  &__date
+    width: px2rem($docCardLayoutWidth / $docCardGridCols * 3)
+    font-weight: 400
+    font-size: px2rem(17)
+    line-height: 1.75rem
+    color: rgba(0, 0, 0, .64)
+
+  &__number
+    font-weight: 700
+    color: #9b51e0
+    letter-spacing: px2rem(.64)
+
+  &__date
+    letter-spacing: px2rem(.24)
+
+  &__name
+    width: 100%
+    height: 1.75rem
+    font-weight: 500
+    font-size: 1.25rem
+    line-height: 1.75rem
+    color: rgba(0, 0, 0, .88)
+    letter-spacing: px2rem(.24)
+
+  &__label
+    @extends $textNowrap
+    position: relative
+    z-index: 1
+    display: inline-block
+    max-width: 100%
+    vertical-align: top
+
+  &__control
+    position: relative
+    flex: 0 0 auto
+    display: block
+    width: px2rem($docCardLayoutWidth / $docCardGridCols)
+    padding: 0
+    margin: 0
+
+  &__button
+    @extends $button
+    display: block
+    position: relative
+    z-index: 0
+    flex: 0 0 auto
+    display: block
+    width: 1.5rem
+    height: @width
+    padding: .75rem
+    border-radius: 50%
+    margin: 0 auto
+    cursor: pointer
+    transition: all .24s ease
+
+    &_state_hover
+      opacity: .48
+      will-change: opacity
+
+    &_state_hover:hover
+      opacity: .88
+
+    &::before
+      content: ''
+      position: absolute
+      top: 50%
+      right: 0
+      bottom: 0
+      left: 50%
+      z-index: -1
+      display: block
+      width: 0
+      height: @width
+      border: 1.5rem solid
+      border-radius: 50%
+      opacity: 0
+      transform: translate(-50%, -50%) scale(.8)
+      transition: all .24s ease
+      will-change: opacity transform
+
+    &_state_hover:hover::before
+      opacity: .12
+      transform: translate(-50%, -50%) scale(1)
+
+  &__main
+    position: relative
+    display: block
+    padding: 0
+    margin: 0
+    border-radius: px2rem(6)
+    overflow: hidden

@@ -1,0 +1,43 @@
+// document modal section component
+
+.documentModalSection
+  position: relative
+  display: block
+  padding: 0
+  margin: .25rem 0 0
+  opacity: 0
+  transform: translateY(2rem)
+  transition: all .16s ease
+  will-change: opacity, transform
+
+  &:first-child
+    margin-top: 0
+
+  .documentModal_show &
+    opacity: 1
+    transform: translateY(0rem)
+
+    for $i in 0..16
+      &:nth-child({$i})
+        transition-delay: s('%ds', .16 + .08 * $i)
+
+  &__header
+  &__main
+  &__title
+    position: relative
+    display: block
+    padding: 0
+    margin: 0
+
+  &__header
+    border-radius: .25rem .25rem 0 0
+    background-color: #fff
+
+  &__title
+    @extends $textNowrap
+    padding: px2rem((72 - 24) / 2) px2rem($docModalGapSize / 2)
+    font-weight: 400
+    font-size: px2rem(14)
+    line-height: 1.5rem
+    color: $themeColorDark
+    letter-spacing: px2rem(.24)

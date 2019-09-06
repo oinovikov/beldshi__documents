@@ -1,0 +1,22 @@
+div.filter
+    div.calendar
+        div.calendar__header
+            button.calendar__nav
+                +icon('chevronLeft')
+            div.calendar__name Январь 2017
+            button.calendar__nav
+                +icon('chevronRight')
+        div.calendar__main
+            - $week = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']
+            for $day in $week
+                label.calendar__day.calendar__day_type_name= $day
+
+            - $i = 1
+            while $i <= 31
+                label.calendar__day
+                    input.calendar__input(
+                        type="radio",
+                        name="calend",
+                        value=$i
+                    )
+                    span.calendar__label= $i++

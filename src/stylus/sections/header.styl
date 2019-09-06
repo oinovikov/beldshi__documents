@@ -1,0 +1,31 @@
+// header section
+
+.header
+  @extends $section
+
+  &__body
+    @extends $sectionBody
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-content: center
+    align-items: center
+    height: px2rem(120 - 16)
+    padding-top: 1rem
+
+  &__title
+  &__controls
+    box-sizing: border-box
+    position: relative
+    flex: 0 0 auto
+    display: block
+    padding: 0 px2rem($layoutGapSize / 2)
+    margin: 0
+
+  &__title
+    // padding: .25rem 0
+    font-weight: 700
+    font-size: px2rem(32)
+    line-height: px2rem(40)
+    color: rgba(0, 0, 0, .88)
+    letter-spacing: px2rem(.64)

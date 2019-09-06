@@ -1,0 +1,24 @@
+mixin document($number, $date, $name, $fields = {})
+    article.document.document_state_hover.document__type_order
+        header.document__header
+            div.document__info
+                div.document__number
+                    data.document__label(value=$number)= $number
+                div.document__date
+                    time.document__label(datetime="")= $date
+                h2.document__name(data-title=$name)
+                    span.document__label= $name
+
+            div.document__control
+                button.document__button.document__button_state_hover
+                    include ../svg/share2_24.svg
+            div.document__control
+                button.document__button.document__button_state_hover
+                    include ../svg/edit_24.svg
+
+        section.document__main
+            each $value, $name in $fields
+                if $value
+                    div.documentField
+                        p.documentField__name= $name
+                        p.documentField__value= $value

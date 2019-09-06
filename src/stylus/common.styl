@@ -1,8 +1,38 @@
-@require '_variables.styl'
-@require '_mixins.styl'
-@require '_functions.styl'
-@require '_extends.styl'
-@require 'global.styl'
+@require '_variables'
+@require '_mixins'
+@require '_functions'
+@require '_extends'
+
+// global
+@require 'global'
 
 // base
-@require 'blocks/app.styl';
+@require 'app';
+
+// comopnents
+// @require 'components/grid'
+@require 'components/shadows'
+@require 'components/button'
+@require 'components/select'
+// @require 'components/appSection'
+@require 'components/document'
+@require 'components/documentField'
+@require 'components/documentModal'
+@require 'components/documentModalHeader'
+@require 'components/documentModalSection'
+@require 'components/documentModalField'
+@require 'components/search'
+@require 'components/order'
+@require 'components/calendar'
+
+// sections
+@require 'sections/bar';
+@require 'sections/header';
+@require 'sections/main';
+@require 'sections/footer';
+
+// blocks
+// @require 'blocks/mainContent';
+@require 'blocks/documentsControls';
+@require 'blocks/documents';
+@require 'blocks/filter';

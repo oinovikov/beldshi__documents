@@ -5,7 +5,7 @@ $font = {
   weight: 400,
   size: 12pt,
   height: 1,
-  family: "'Source Sans Pro', Arial, Helvetica, sans-serif"
+  family: "'PT Root UI',  Arial, Helvetica, sans-serif"
 }
 
 // Base em size
@@ -13,6 +13,39 @@ $em = 16
 
 // Num columns in responsive layout grid
 $grid = 12
+
+// Layout width
+$layoutWidth = 1008
+
+// Grid gap size
+$layoutGapSize = 24
+
+// Options for Main section
+$mainContentLayoutWidth = $layoutWidth / $grid * 8
+$mainSideLayoutWidth = $layoutWidth / $grid * 4
+
+// Options for Document component
+$docCardGridCols = 12
+$docCardGapSize = 16
+$docCardMarginSize = 12
+$docCardLayoutWidth = $mainContentLayoutWidth - $layoutGapSize - $docCardMarginSize * 2
+$docCardContentWidth = 720
+
+// Options for Document Modal component
+$docModalGridCols = 12
+$docModalGapSize = 24
+$docModalMarginSize = 16
+$docModalLayoutWidth = $layoutWidth / $grid * 10 - $layoutGapSize
+
+
+// Colors
+$themeColor = #bb6bd9
+$themeColorDark = #9b51e0
+
+
+
+
+/*
 
 $colors = {
   primary: #b61414,

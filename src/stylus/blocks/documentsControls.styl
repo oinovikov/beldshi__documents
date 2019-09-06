@@ -1,0 +1,25 @@
+// Documents control block
+
+.documentsControls
+  position: relative
+  display: flex
+  flex-flow: row nowrap
+  justify-content: space-between
+  align-content: center
+  align-items: center
+  padding: 0
+  margin: 0
+
+  &__search
+  &__order
+    box-sizing: border-box
+    position: relative
+    display: block
+    padding: 0 px2rem($layoutGapSize / 2)
+    margin: 0
+
+  &__search
+    width: px2rem($layoutWidth / $grid * 5)
+
+  &__order
+    width: px2rem($layoutWidth / $grid * 3)

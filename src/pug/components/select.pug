@@ -1,0 +1,20 @@
+mixin select($name, $options, $placeholder)
+    div.select
+        //- div.select__field.select__value_field_long(data-title="Текущее значение sdasd")
+        div.select__field
+            span.select__value(data-placeholder=$placeholder)
+            i.select__arrow
+                +icon('chevronDown')
+        div.select__dropdown
+            div.select__menu
+                ul.select__list
+                    for $option in $options
+                        li.select__item
+                            label.select__option
+                                input.select__input(
+                                    type="radio",
+                                    name=$name,
+                                    value=$option['value'],
+                                    checked=$option['checked']
+                                )
+                                span.select__label= $option['label']

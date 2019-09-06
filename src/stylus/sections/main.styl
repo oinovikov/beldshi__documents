@@ -1,0 +1,25 @@
+// main section
+
+.main
+  @extends $section
+
+  &__body
+    @extends $sectionBody
+    display: flex
+    flex-flow: row nowrap
+    justify-content: stretch
+    align-content: stretch
+    align-items: stretch
+
+  &__content
+  &__side
+    position: relative
+    flex: 0 0 auto
+    display: block
+    margin: 0
+
+  &__content
+    width: px2rem($mainContentLayoutWidth)
+
+  &__side
+    width: px2rem($mainSideLayoutWidth)

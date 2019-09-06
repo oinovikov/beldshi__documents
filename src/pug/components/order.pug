@@ -1,0 +1,19 @@
+div.order
+    div.order__field
+        +select('order', [
+            {value: 'dads', label: 'Test 1', checked: false},
+            {value: 'e2930', label: 'Test 2', checked: false},
+            {value: 'dfwe', label: 'Test 3', checked: false},
+            {value: 'scdag', label: 'Test 4', checked: true},
+            {value: 'afw3aw', label: 'Test 5', checked: false},
+
+            {value: 'w4dr', label: 'Test 1', checked: false},
+            {value: '4tvg4', label: 'Test 2', checked: false},
+            {value: 'wert', label: 'Test 3', checked: false},
+            {value: '34cr3', label: 'Test 4 asjflksdflkjsd jlsdjf klsjdl k', checked: false},
+            {value: 'erbhy', label: 'Test 5', checked: false},
+        ], 'Выберите значение')
+    button.order__sort
+        +icon('arrowUp')
+    button.order__sort
+        +icon('arrowDown')

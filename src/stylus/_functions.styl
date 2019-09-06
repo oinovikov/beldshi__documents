@@ -116,22 +116,14 @@ scroll($barBg = #fff, $thumbBg = #333, $thumbHoverBg = #444, $borderColor = tran
         background-color $barBg
 
 placeholder($font = getFont(), $color = #eee)
-  &::-webkit-input-placeholder
+  $vendors = '::-webkit-input-' '::-moz-' ':-ms-input-' ':-moz-' '::'
+  props()
     font: $font
     color: $color
+    if @letter-spacing
+      letter-spacing: @letter-spacing
+    text-overflow: ellipsis
 
-  &::-moz-placeholder
-    font: $font
-    color: $color
-
-  &:-ms-input-placeholder
-    font: $font
-    color: $color
-
-  &:-moz-placeholder
-    font: $font
-    color: $color
-
-  &::placeholder
-    font: $font
-    color: $color
+  for $prefix in $vendors
+    &{$prefix}placeholder
+      props()

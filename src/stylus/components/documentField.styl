@@ -1,0 +1,36 @@
+// document additional list field component
+
+.documentField
+  position: relative
+  display: flex
+  flex-flow: row wrap
+  justify-content: flex-start
+  align-content: flex-start
+  align-items: flex-start
+  padding: 1rem px2rem(10)
+  margin-top: .0625rem
+  background-color: #fff
+
+  &:first-child
+    margin-top: 0
+
+  &__name
+  &__value
+    box-sizing: border-box
+    position: relative
+    display: block
+    padding: .125rem px2rem($docCardGapSize / 2)
+    margin: 0
+    font-size: px2rem(14)
+    line-height: 1.25rem
+
+  &__name
+    @extends $textNowrap
+    flex: 0 0 auto
+    width: px2rem($docCardLayoutWidth / $docCardGridCols * 3)
+    color: rgba(0, 0, 0, .64)
+
+  &__value
+    flex: 1 1 auto
+    width: px2rem($docCardLayoutWidth / $docCardGridCols * 9)
+    color: rgba(0, 0, 0, .88)

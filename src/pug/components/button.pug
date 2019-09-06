@@ -1,0 +1,39 @@
+mixin button($label = 'Button label', $type = 'button', $large = false, $iconName = null)
+    case $type
+        when 'link'
+            a.button(class=$large ? "button_size_large" : "")&attributes(attributes)
+                span.button__decor
+                    if $iconName
+                        i.button__icon
+                            +icon($iconName, $large ? 24 : 20)
+                    span.button__label= $label
+            - break
+        when 'submit'
+            button.button(class=$large ? "button_size_large" : "", type="submit")&attributes(attributes)
+                span.button__decor
+                    if $iconName
+                        i.button__icon
+                            +icon($iconName, $large ? 24 : 20)
+                    span.button__label= $label
+            - break
+        default
+            button.button(class=$large ? "button_size_large" : "", type="button")&attributes(attributes)
+                span.button__decor
+                    if $iconName
+                        i.button__icon
+                            +icon($iconName, $large ? 24 : 20)
+                    span.button__label= $label
+            - break
+
+
+mixin buttonLink($label = 'Button label', href = '#', $type = 'filled', $size = 'm')
+    a.button(href=href)&attributes(attributes)
+        span.button__decor
+            span.button__label= $label
+
+
+mixin buttonLinkIcon($label = 'Button label', href = '#', $type = 'filled', $size = 'm')
+    a.button(href=href)&attributes(attributes)
+        i.button__icon
+        span.button__decor
+            span.button__label= $label

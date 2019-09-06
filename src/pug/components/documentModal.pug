@@ -1,0 +1,247 @@
+-
+    $info = {
+        type: 'Основная деятельность',
+        id: 'Приказ от 5 августа 2015 года № 284/1',
+        title: 'О контроле по подготовке и ремонту учебных кабинетов',
+        sections: [
+            {
+                title: 'Реквизиты',
+                fields: [
+                    {
+                        name: 'Тип документа',
+                        value: [
+                            {
+                                label: null,
+                                text: 'Приказ',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Вид документа',
+                        value: [
+                            {
+                                label: null,
+                                text: 'По основной деятельности',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Зарегистрирован',
+                        value: [
+                            {
+                                label: 'Номер',
+                                text: '284/1',
+                            },
+                            {
+                                label: 'Дата',
+                                text: '5 августа 2015',
+                            }
+                        ],
+                    },
+                    {
+                        name: 'Наименование',
+                        value: [
+                            {
+                                label: null,
+                                text: 'О контроле по подготовке и ремонту учебных кабинетов',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                title: 'Информация',
+                fields: [
+                    {
+                        name: 'Статус',
+                        value: [
+                            {
+                                label: null,
+                                text: 'Исполнен',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Доступ',
+                        value: [
+                            {
+                                label: 'ДСП',
+                                text: 'нет',
+                            },
+                            {
+                                label: 'На сайте',
+                                text: 'нет',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Оригинал',
+                        value: [
+                            {
+                                label: '№ бланка',
+                                text: '24899',
+                            },
+                            {
+                                label: 'Прошито',
+                                text: 'нет',
+                            }
+                        ],
+                    },
+                    {
+                        name: 'Кол-во листов',
+                        value: [
+                            {
+                                label: 'Основной док-т',
+                                text: '2',
+                            },
+                            {
+                                label: 'Приложения',
+                                text: '0',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                title: 'Дополнительно',
+                fields: [
+                    {
+                        name: 'Мероприятие',
+                        value: [
+                            {
+                                label: null,
+                                text: 'Провести проверку готовности учебных кабинетов',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Место проведения',
+                        value: [
+                            {
+                                label: null,
+                                text: 'Локально',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Дата проведения',
+                        value: [
+                            {
+                                label: null,
+                                text: 'до 10 августа 2015 года',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Метки',
+                        value: [
+                            {
+                                label: 'Основной док-т',
+                                text: '2',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Примечание',
+                        value: [
+                            {
+                                label: '',
+                                text: 'Необходимо запросить коммерческие предложения на ремонт кабинетов 315 и 316',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                title: 'Ответственные',
+                fields: [
+                    {
+                        name: 'Подготовлено',
+                        value: [
+                            {
+                                label: null,
+                                text: 'Шевченко Елена Леонидовна',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Место проведения',
+                        value: [
+                            {
+                                label: null,
+                                text: 'Локально',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Дата проведения',
+                        value: [
+                            {
+                                label: null,
+                                text: 'до 10 августа 2015 года',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Метки',
+                        value: [
+                            {
+                                label: 'Основной док-т',
+                                text: '2',
+                            },
+                        ],
+                    },
+                    {
+                        name: 'Примечание',
+                        value: [
+                            {
+                                label: '',
+                                text: 'Необходимо запросить коммерческие предложения на ремонт кабинетов 315 и 316',
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    };
+
+div.documentModal
+    div.documentModal__layout
+        div.documentModal__body
+            div.documentModalHeader
+                div.documentModal__row
+                    div.documentModal__container
+                        div.documentModalHeader__body
+                            p.documentModalHeader__type= $info.type
+                            p.documentModalHeader__id= $info.id
+                            h1.documentModalHeader__title= $info.title
+                    div.documentModal__control <!---->
+
+            if $info.sections.length > 0
+                div.documentModal__main
+                    for $section in $info.sections
+                        if $section.fields.length > 0
+                            div.documentModalSection
+                                if $section.title
+                                    div.documentModalSection__header
+                                        div.documentModal__row
+                                            div.documentModal__container
+                                                h2.documentModalSection__title= $section.title
+                                            div.documentModal__control  <!---->
+
+                                div.documentModalSection__main
+                                    for $field in $section.fields
+                                        div.documentModalField
+                                            div.documentModal__row
+                                                div.documentModal__container
+                                                    div.documentModalField__body
+                                                        div.documentModalField__name
+                                                            p.documentModalField__text= $field.name
+                                                        div.documentModalField__value
+                                                            for $value in $field.value
+                                                                p.documentModalField__text(class=$field.value.length > 1 ? "documentModalField__text_fill_half" : "")
+                                                                    if $value.label
+                                                                        span.documentModalField__label= $value.label
+                                                                            | :&nbsp;
+                                                                    = $value.text
+                                                div.documentModal__control  <!---->

@@ -1,0 +1,61 @@
+// document modal field component
+
+.documentModalField
+  position: relative
+  display: block
+  padding: 0
+  margin: .0625rem 0 0
+  background-color: #fff
+
+  &:last-child
+    border-radius: 0 0 .25rem .25rem
+
+  &__body
+    position: relative
+    display: flex
+    flex-flow: row nowrap
+    justify-content: stretch
+    align-content: stretch
+    align-items: stretch
+    padding: 1rem 0
+    margin: 0
+
+  &__name
+  &__value
+    box-sizing: border-box
+    position: relative
+    padding: 0
+    margin: 0
+    font-size: px2rem(17)
+    line-height: 1.5rem
+    letter-spacing: px2rem(.16)
+
+  &__name
+    display: block
+    width: px2rem($docCardContentWidth / 12 * 4)
+    color: rgba(0, 0, 0, .64)
+
+  &__value
+    display: flex
+    flex-flow: row wrap
+    justify-content: flex-start
+    align-content: stretch
+    align-items: stretch
+    width: px2rem($docCardContentWidth / 12 * 8)
+    color: rgba(0, 0, 0, .88)
+
+  &__text
+    box-sizing: border-box
+    position: relative
+    flex: 0 0 auto
+    display: block
+    width: 100%
+    padding: .25rem px2rem($docModalGapSize / 2)
+    margin: 0
+
+    &_fill_half
+      width: 50%
+
+  &__label
+    position: relative
+    color: rgba(0, 0, 0, .48)

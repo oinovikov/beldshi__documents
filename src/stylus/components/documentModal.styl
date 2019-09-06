@@ -1,0 +1,87 @@
+// docuemnt modal component
+
+.documentModal
+  box-sizing: border-box
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 2
+  display: flex
+  flex-flow: column nowrap
+  justify-content: flex-start
+  align-content: center
+  align-items: center
+  width: 100vw
+  height: 100%
+  overflow-x: hidden
+  overflow-y: scroll
+
+  &__layout
+    box-sizing: border-box
+    position: relative
+    flex: 0 0 auto
+    display: block
+    width: px2rem($docModalLayoutWidth)
+    min-height: 100%
+    padding: 2em 0
+    margin: 0 auto
+
+  &__body
+    position: relative
+    z-index: 1
+    display: block
+    padding: .25rem
+    border-radius: .5rem
+    margin: 0
+    background-color: #fff
+    overflow: hidden
+    opacity: 0
+    visibility: hidden
+    transform: translateY(2rem)
+    transition-property: opacity, visibility, transform
+    transition-duration: .16s
+    transition-timing-function: ease-out
+    transition-delay: 0s
+    will-change: opacity, visibility, transform
+
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      display: block
+      background-color: rgba($themeColor, .1)
+
+    ^[0]_show &
+      opacity: 1
+      visibility: visible
+      transform: translateY(0rem)
+      transition-timing-function: ease-in
+      // transition-delay: .04s
+
+  &__row
+    position: relative
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-content: flex-start
+    align-items: flex-start
+    padding: 0 .75rem
+    // background: yellow
+
+  &__container
+  &__control
+    position: relative
+    flex: 0 0 auto
+    display: block
+
+  &__container
+    width: px2rem(720)
+    // background: tomato
+
+  &__control
+    width: 3rem
+    // background: violet

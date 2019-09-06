@@ -1,22 +1,15 @@
-# Hello world!
+# Documents app for school
 
-It`s my own template for front-end development.
+This application is a database of internal documents of the organization. The emphasis is on ease of use, design, and the new experience of interaction.
 
-Workflow
+For test
 ---
-I use **pug** for HTML build, **stylus** as CSS preprocessor and vailla JS.
+- ```cd public```
+- ```php -S 0.0.0.0:8000```
 
-Install
+For build
 ---
-After clone repo, run ```npm i``` for install node modules.
+See [Template readme](https://github.com/oinovikov/fe__template/blob/master/README.md).
 
-NPM commands
----
-- ```gulp html``` for build HTML;
-- ```gulp css``` for compile CSS;
-- ```gulp js``` for concatenation and minified JS;
-- ```gulp``` for all of the above;
-- ```gulp watch``` for watching changes and project auto build;
-
----
+***
 https://olegn.ru

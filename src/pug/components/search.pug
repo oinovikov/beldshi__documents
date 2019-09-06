@@ -1,0 +1,14 @@
+label.search
+    input.search__field(
+        type="text",
+        name="search",
+        placeholder="Поиск документа",
+        value="",
+        autocomplete="off",
+        spellcheck="false",
+        required
+    )
+    i.search__icon
+        +icon('search')
+    button.search__clear(type="reset")
+        +icon('xCircle')

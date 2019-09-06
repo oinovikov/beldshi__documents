@@ -1,0 +1,182 @@
+// calendar component
+
+.calendar
+  position: relative
+  z-index: 1
+  display: block
+  padding: .5rem .5rem 1.5rem
+  border-radius: .25rem
+  margin: 0
+  background-color: #fafafa
+  cursor: default
+  user-select: none
+
+  &__header
+    position: relative
+    display: flex
+    flex-flow: row nowrap
+    justify-content: flex-start
+    align-content: center
+    align-items: center
+
+  &__nav
+    @extends $button
+    position: relative
+    width: 1.25rem
+    height: @width
+    padding: .875rem
+    border-radius: 50%
+    opacity: .64
+    transition: opacity .24s ease
+    will-change: opacity
+
+    &:hover
+      opacity: .88
+      cursor: pointer
+
+    &:disabled
+    &:disabled:hover
+      opacity: .48
+      cursor: default
+
+    &::before
+      content: ''
+      position: absolute
+      top: 50%
+      right: 0
+      bottom: 0
+      left: 50%
+      z-index: -1
+      display: block
+      width: 0
+      height: @width
+      border: 1.25rem solid
+      border-radius: 50%
+      opacity: 0
+      transform: translate(-50%, -50%) scale(.8)
+      transition: all .24s ease
+      will-change: opacity transform
+
+    &:hover::before
+      opacity: .12
+      transform: translate(-50%, -50%) scale(1)
+      animation: buttonIconHover 1.6s linear .24s infinite
+
+  &__name
+    position: relative
+    display: block
+    padding: 0
+    margin: 0
+    font-weight: 500
+    font-size: px2rem(17)
+    line-height: 1.25rem
+    color: rgba(0, 0, 0, .88)
+
+  &__main
+    position: relative
+    display: flex
+    flex-flow: row wrap
+    justify-content: flex-start
+    align-content: flex-start
+    align-items: flex-start
+    width: px2rem(40 * 7)
+    padding: 0
+    margin: 0 auto
+
+  &__day
+    box-sizing: border-box
+    position: relative
+    display: block
+    width: 2rem
+    height: @width
+    padding: .25rem
+    margin: .25rem
+    border-radius: 50%
+    font-size: px2rem(14)
+    line-height: 1.5rem
+    color: rgba(0, 0, 0, .88)
+    letter-spacing: px2rem(.24)
+    text-indent: @letter-spacing
+    text-align: center
+    transition: background-color .24s ease
+    will-change: background-color
+    cursor: pointer
+
+    &_has_document::after
+      content: ''
+      position: absolute
+      bottom: .125rem
+      left: 50%
+      display: block
+      width: .25rem
+      height: @width
+      padding: 0
+      border-radius: 50%
+      margin: 0
+      background-color: $themeColorDark
+      transform: translateX(-50%)
+
+    &_type_out
+    &_type_name
+      color: rgba(0, 0, 0, .48)
+
+    &_type_name
+      cursor: default
+
+  &__input
+    position: absolute
+    top: -9999px
+    left: -9999px
+    z-index: -999
+    visibility: hidden
+    opacity: 0
+
+  &__label
+    position: static
+    display: block
+
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      display: block
+      border-radius: 50%
+      background-color: #eee
+      opacity: 0
+      transform: scale(1.2)
+      transition: all .24s ease
+      will-change: background-color, opacity, transform
+
+    ^[0]__day:hover &::before
+      opacity: 1
+      transform: scale(1)
+
+    ^[0]__input:checked ~ &::before
+      background-color: rgba($themeColor, .4)
+      opacity: 1
+      transform: scale(1)
+
+    // ^[0]__input[type="checkbox"]:checked ~ ^[0]__input[type="checkbox"]:checked + ^[0]__day &::after
+    //   content: ''
+    //   position: absolute
+    //   top: 0
+    //   right: -.25rem
+    //   bottom: 0
+    //   left: @right
+    //   z-index: -1
+    //   display: block
+    //   background-color: rgba($themeColor, .4)
+    //   transform: translateX(-50%)
+
+
+@keyframes buttonIconHover
+  0%
+    transform: translate(-50%, -50%) scale(1)
+  50%
+    transform: translate(-50%, -50%) scale(.88)
+  100%
+    transform: translate(-50%, -50%) scale(1)

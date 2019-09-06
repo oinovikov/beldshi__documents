@@ -15,7 +15,9 @@ function compileHTML() {
             '!' + srcFolder + '/pug/_*.pug',
             '!' + srcFolder + '/pug/_*.html',
         ])
-        .pipe(pug())
+        .pipe(pug({
+            pretty: true,
+        }))
         .pipe(gulp.dest(targetFolder + '/'));
 };
 
@@ -26,7 +28,7 @@ function compileCSS() {
             '!' + srcFolder + '/stylus/**/_*.styl',
         ])
         .pipe(stylus({
-            compress: true
+            // compress: true,
         }))
         .pipe(gulp.dest(targetFolder + '/css'));
 };
@@ -40,7 +42,7 @@ function compileJS() {
             srcFolder + '/js/common.js',
             '!' + srcFolder + '/js/**/_*.js',
         ])
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(concat('common.js'))
         .pipe(gulp.dest(targetFolder + '/js'));
 };
@@ -52,7 +54,7 @@ gulp.task('js', compileJS);
 gulp.task('default', gulp.parallel(compileHTML, compileCSS, compileJS));
 
 gulp.task('watch', function () {
-    gulp.watch([srcFolder + '/pug/**/*.pug', srcFolder + '/pug/**/*.html'], compileHTML);
+    gulp.watch([srcFolder + '/pug/**/*.pug', srcFolder + '/pug/**/*.html', srcFolder + '/pug/**/*.svg'], compileHTML);
     gulp.watch(srcFolder + '/stylus/**/*.styl', compileCSS);
     gulp.watch(srcFolder + '/js/**/*.js', compileJS);
 });

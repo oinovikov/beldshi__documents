@@ -1,0 +1,43 @@
+// bar section
+
+.bar
+  @extends $section
+
+  &__body
+    @extends $sectionBody
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-content: center
+    align-items: center
+    height: 4rem
+
+  &__org
+  &__account
+    box-sizing: border-box
+    position: relative
+    flex: 0 0 auto
+    display: block
+    padding: 0 px2rem($layoutGapSize / 2)
+    margin: 0
+    font-size: px2rem(14)
+    line-height: 1.5rem
+    color: rgba(0, 0, 0, .64)
+    letter-spacing: px2rem(.024)
+
+  &__login
+    @extends $button
+    position: relative
+    height: 1.5rem
+    padding: .75rem 0
+    font-size: px2rem(14)
+    line-height: 1.5rem
+    color: rgba(0, 0, 0, .64)
+    letter-spacing: px2rem(.024)
+    text-transform: uppercase
+    cursor: pointer
+    transition: color .24s ease
+    will-change: color
+
+    &:hover
+      color: rgba(0, 0, 0, .88)
